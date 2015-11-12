@@ -1,27 +1,38 @@
 
-var davidTodo = angular.module('davidTodo', []);
+var app = angular.module('david', []);
 
-function mainController($scope,$http){
+function mainController($scope, $http){
   $scope.formData = {};
 
   $http.get('/api/todos')
-    .succes(function(data){
+    .success(function(data){
       $scope.todos = data;
       console.log(data);
     })
     .error(function(data){
-      console.console.log('Error: ' + data );
+      console.log('Error: ' + data );
     });
 
-    $scope.CreateTodo = function(){
+    $scope.createTodo = function(){
         $http.post('/api/todos', $scope.formData)
-          .succes(function(data){
-            $scope.formData = {}
+          .success(function(data){
+            $scope.formData = {};
             console.log(data);
           })
           .error(function(data){
-            console.log('Error: ' + data)
+            console.log('Error: ' + data);
           });
+    };
+    // delete a todo after checking it
+    $scope.deleteTodo = function(id) {
+        $http.delete('/api/todos/' + id)
+            .success(function(data) {
+                $scope.todos = data;
+                console.log(data);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
     };
 
 

@@ -46,7 +46,7 @@
               if(err)
                 res.send(err)
                 res.json(todos); // devuelve todos las tareas en forma de json
-            })
+            });
           });
 
           // crear un todo y envía devuleta todos los todo despues de la creación
