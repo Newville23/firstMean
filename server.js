@@ -1,14 +1,14 @@
 //server.js
 
   //set-up
-  var express  = require('express');
-  var app      = express();            //crea la app con express
-  var mongoose = require('mongoose');  //mongoose para mongodb
-  var morgan = require('morgan');
-  var bodyParser = require('body-parser');
-  var methodOverride = require('method-override');
-  var db = mongoose.connection;
-  var port = 5000;
+  var express  = require('express'),
+     app      = express(),            //crea la app con express
+     mongoose = require('mongoose'),  //mongoose para mongodb
+     morgan = require('morgan'),
+     bodyParser = require('body-parser'),
+     methodOverride = require('method-override'),
+     db = mongoose.connection,
+     port = 5000,
 
 
   //Configuration
@@ -84,10 +84,12 @@
       });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-//application
-app.get('*', function(req, res){
-  res.sendfile('./public/index.html'); // carga la pagina principal
-})
+
+
+    //application
+    app.get('*', function(req, res){
+      res.sendfile('./public/index.html'); // carga la pagina principal
+    })
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
