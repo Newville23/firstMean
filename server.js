@@ -8,7 +8,7 @@
      bodyParser = require('body-parser'),
      methodOverride = require('method-override'),
      db = mongoose.connection,
-     port = 5000,
+     port = 5000;
 
 
   //Configuration
